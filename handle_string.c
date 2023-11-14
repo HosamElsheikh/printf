@@ -17,7 +17,7 @@ int handle_string(va_list args)
 	char *str = va_arg(args, char *);
 
 	if (!str)
-		str = NULL;
+		str = '\0';
 
 	if (str[0] == '\0')
 		return (-1);
