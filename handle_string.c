@@ -1,17 +1,31 @@
 #include "main.h"
+#include <unistd.h>
+#include <stdarg.h>
 
 /**
- * handle_string - Handles the 's' conversion specifier for _printf
- * @args: The va_list containing the argument to be formatted
+ * handle_string - print string.
  *
- * Return: The number of characters printed
+ * @args: argument.
+ *
+ * Return: character count.
  */
+
 int handle_string(va_list args)
 {
-	char *str = va_arg(args, char *);
-	int count = 0;
+        int i;
+        int count_fun = 0;
+        char *str = va_arg(args, char *);
 
+        if (!str)
+                str = "(null)";
 
+        if (str[0] == '\0')
+                return (-1);
+
+        for (i = 0; str[i] != '\0'; i++)
+                count_fun += _putchar(str[i]);
+
+<<<<<<< HEAD
 	while (*str)
 	{
 		if (write(1, str, 1) == -1)
@@ -22,4 +36,7 @@ int handle_string(va_list args)
 		count++;
 	}
 	return (count);
+=======
+        return (count_fun);
+>>>>>>> e8102530c8a8992965f36a74b9b2ae08b8123e94
 }

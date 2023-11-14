@@ -1,19 +1,19 @@
 #include "main.h"
+#include <unistd.h>
 
 /**
- * handle_char - Handles the 'c' conversion specifier for _printf
- * @args: The va_list containing the argument to be formatted
+ * handle_char - print char
  *
- * Return: The number of characters printed
+ * @args: argument.
+ *
+ * Return: count of chars.
  */
+
 int handle_char(va_list args)
 {
-	char c = va_arg(args, int);
+        char c = va_arg(args, int);
 
-	if (write(1, &c, 1) == -1)
-	{
-		return (-1);
-	}
-	putchar(c);
-	return (1);
+        _putchar(c);
+
+        return (1);
 }
