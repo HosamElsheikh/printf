@@ -26,5 +26,6 @@ int _putchar(char c);
 int handle_char(va_list args);
 int handle_string(va_list args);
 int handle_digit(va_list args);
+int handle_binary(va_list args);
 
 #endif

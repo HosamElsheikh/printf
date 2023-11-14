@@ -19,6 +19,7 @@ int get_function(char con_spec, va_list args)
 		{'s', handle_string},
 		{'d', handle_digit},
 		{'i', handle_digit},
+		{'b', handle_binary},
 		{0, NULL}
 	};
 
