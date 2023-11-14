@@ -28,10 +28,10 @@ int _printf(const char *format, ...)
 				case 's':
 					count += handle_string(args);
 					break;
-				default:
+				case '%':
 					putchar('%');
-					count++;
-					break;
+                                        count++;
+                                        break;
 			}
 		}
 		else
