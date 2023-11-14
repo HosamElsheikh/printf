@@ -20,6 +20,6 @@ int handle_char(va_list args)
 	}
 	else
 	{
-		return(-1);
+		return (-1);
 	}
 }
