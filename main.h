@@ -9,5 +9,6 @@
 int _printf(const char *format, ...);
 int handle_char(va_list args);
 int handle_string(va_list args);
+int handle_int(va_list args);
 
 #endif /* MAIN_H */

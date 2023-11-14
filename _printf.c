@@ -29,6 +29,10 @@ int _printf(const char *format, ...)
 				case 's':
 					count += handle_string(args);
 					break;
+				case 'd':
+				case 'i':
+					count += handle_int(args);
+					break;
 				case '%':
 					if (write(1, "%", 1) == -1)
 					{
@@ -37,7 +41,7 @@ int _printf(const char *format, ...)
 					}
 					count++;
 					break;
-			
+
 				default:
 					if (write(1, "%", 1) == -1)
 					{
