@@ -9,8 +9,9 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, count = 0, count_fun;
+	int i = 0, count = 0, count_fun, buff_ind = 0;
 	va_list args;
+	char *buffer[1024];
 
 	va_start(args, format);
 	if (!format || (format[0] == '%' && !format[1]))
@@ -41,6 +42,13 @@ int _printf(const char *format, ...)
 		i++;
 		if (count != -1)
 			count += count_fun;
+
+		buff_ind = count;
+		if (buff_ind == 1024 || *format =='\0')
+		{
+			write(1, buffer, buff_ind);
+			buff_ind = 0;
+		}
 	}
 	va_end(args);
 	return (count);
