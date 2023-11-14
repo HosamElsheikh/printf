@@ -16,7 +16,7 @@ int handle_string(va_list args)
 	{
 		if (write(1, str, 1) == -1)
 		{
-			return -1;
+			return (-1);
 		}
 		str++;
 		count++;
