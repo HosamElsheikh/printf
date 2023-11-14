@@ -31,14 +31,37 @@ int _printf(const char *format, ...)
 					count += handle_string(args);
 					break;
 				case '%':
+					if (write(1, "%", 1) == -1)
+					{
+						va_end(args);
+						return (-1);
+					}
 					putchar('%');
 					count++;
 					break;
 			}
+			default:
+			if (write(1, "%", 1) == -1)
+			{
+				va_end(args);
+				return (-1);
+			}
+			if (write(1, format, 1) == -1)
+			{
+				va_end(args);
+				return (-1);
+			}
+			count += 2;
+			break;
+
 		}
 		else
 		{
-			putchar(*format);
+			if (write(1, format, 1) == -1)
+			{
+				va_end(args);
+				return (-1);
+			}
 			count++;
 		}
 		format++;

@@ -11,8 +11,13 @@ int handle_string(va_list args)
 	char *str = va_arg(args, char *);
 	int count = 0;
 
+
 	while (*str)
 	{
+		if (write(1, str, 1) == -1)
+		{
+			return -1;
+		}
 		putchar(*str);
 		str++;
 		count++;
