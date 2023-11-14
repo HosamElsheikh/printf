@@ -32,3 +32,6 @@ int get_function(char con_spec, va_list args)
         if (count_fun == 0)
         {
                 count_fun += _putchar('%');
+	}
+	return (count_fun);
+}
