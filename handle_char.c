@@ -11,9 +11,15 @@
 
 int handle_char(va_list args)
 {
-	char c = va_arg(args, int);
+	unsigned char c = va_arg(args, int);
 
-	_putchar(c);
-
-	return (1);
+	if (c <= 127)
+	{
+		_putchar(c);
+		return (1);
+	}
+	else
+	{
+		return(-1);
+	}
 }
