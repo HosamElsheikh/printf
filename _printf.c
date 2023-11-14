@@ -1,74 +1,47 @@
 #include "main.h"
-
+#include <unistd.h>
 /**
- * _printf - It prints the characters with formatting
- * @format: First unnamed characters
+ * _printf - Emulate the original.
  *
- * Return: The number of printed characters
+ * @format: Format by specifier.
+ *
+ * Return: count of chars.
  */
 int _printf(const char *format, ...)
 {
-	int count = 0;
-	va_list args;
+        int i = 0, count = 0, count_fun;
+        va_list args;
 
-	if (format == NULL)
-		return (-1);
-
-	va_start(args, format);
-
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			format++;
-			switch (*format)
-			{
-				case 'c':
-					count += handle_char(args);
-					break;
-				case 's':
-					count += handle_string(args);
-					break;
-				case 'd':
-				case 'i':
-					count += handle_int(args);
-					break;
-				case '%':
-					if (write(1, "%", 1) == -1)
-					{
-						va_end(args);
-						return (-1);
-					}
-					count++;
-					break;
-
-				default:
-					if (write(1, "%", 1) == -1)
-					{
-						va_end(args);
-						return (-1);
-					}
-					if (write(1, format, 1) == -1)
-					{
-						va_end(args);
-						return (-1);
-					}
-					count += 2;
-					break;
-			}
-		}
-		else
-		{
-			if (write(1, format, 1) == -1)
-			{
-				va_end(args);
-				return (-1);
-			}
-			count++;
-		}
-		format++;
-	}
-	va_end(args);
-
-	return (count);
+        va_start(args, format);
+        if (!format || (format[0] == '%' && !format[1]))
+                return (-1);
+        if (format[0] == '%' && format[1] == ' ' && !format[2])
+                return (-1);
+        while (format[i])
+        {
+                count_fun = 0;
+                if (format[i] == '%')
+                {
+                        if (!format[i + 1] || (format[i + 1] == ' ' && !format[i + 2]))
+                        {
+                                count = -1;
+                                break;
+                        }
+                        count_fun += get_function(format[i + 1], args);
+                        if (count_fun == 0)
+                                count += _putchar(format[i + 1]);
+                        if (count_fun == -1)
+                                count = -1;
+                        i++;
+                }
+                else
+                {
+                        (count == -1) ? (_putchar(format[i])) : (count += _putchar(format[i]));
+                }
+                i++;
+                if (count != -1)
+                        count += count_fun;
+        }
+        va_end(args);
+        return (count);
 }
