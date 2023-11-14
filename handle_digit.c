@@ -6,7 +6,7 @@
  *
  * Return: The number of characters printed
  */
-int handle_int(va_list args)
+int handle_digit(va_list args)
 {
 	int num = va_arg(args, int);
 	int temp = num < 0 ? -num : num;
