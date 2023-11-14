@@ -7,15 +7,14 @@
 
 
 /**
- * struct format - Struct for format
- * @specifiers: Struct format
- * @f: The function associated
+ * struct specifiers - Struct for format specifiers
+ * @specifiers: The specifier character
+ * @f: The function associated with the specifier
  */
-
 typedef struct specifiers
 {
-        char specifiers;
-        int (*f)(va_list);
+	char specifiers;
+	int (*f)(va_list);
 } specifiers_t;
 
 /*prototypes*/
