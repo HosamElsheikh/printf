@@ -18,7 +18,6 @@ int handle_string(va_list args)
 		{
 			return -1;
 		}
-		putchar(*str);
 		str++;
 		count++;
 	}
