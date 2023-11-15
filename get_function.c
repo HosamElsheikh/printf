@@ -24,6 +24,7 @@ int get_function(char con_spec, va_list args)
 		{'o', handle_oct},
 		{'x', handle_hex},
 		{'X', handle_hex_upper},
+		{'S', handle_custom_s},
 		{0, NULL}
 	};
 
