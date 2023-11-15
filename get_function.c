@@ -20,6 +20,7 @@ int get_function(char con_spec, va_list args)
 		{'d', handle_digit},
 		{'i', handle_digit},
 		{'b', handle_binary},
+		{'u', handle_uint},
 		{0, NULL}
 	};
 
