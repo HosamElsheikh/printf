@@ -15,10 +15,10 @@ int handle_custom_s(va_list args)
 	char *str = va_arg(args, char *);
 	int count_fun = 0;  
 
-    if (str == NULL)
-    {
-        return _printf("(null)");
-    }
+	if (str == NULL)
+	{
+		return _printf("(null)");
+	}
 
     while (*str)
     {
