@@ -21,6 +21,9 @@ int get_function(char con_spec, va_list args)
 		{'i', handle_digit},
 		{'b', handle_binary},
 		{'u', handle_uint},
+		{'o', handle_oct},
+		{'x', handle_hex},
+		{'X', handle_hex_upper},
 		{0, NULL}
 	};
 

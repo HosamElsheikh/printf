@@ -28,5 +28,8 @@ int handle_string(va_list args);
 int handle_digit(va_list args);
 int handle_binary(va_list args);
 int handle_uint(va_list args);
+int handle_oct(va_list args);
+int handle_hex(va_list args);
+int handle_hex_upper(va_list args);
 
 #endif
