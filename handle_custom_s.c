@@ -9,41 +9,36 @@
  * @args: Arguments.
  *
  * Return: char count.
- * */
+ */
 int handle_custom_s(va_list args)
 {
 	char *str = va_arg(args, char *);
-	int count_fun = 0;  
+	int count_fun = 0;
 
 	if (str == NULL)
 	{
-		return _printf("(null)");
+		return (_printf("(null)"));
 	}
-
-    while (*str)
-    {
-        if (*str >= 32 && *str < 127)
-        {
-            _putchar(*str);
-            count_fun++;
-        }
-        else
-        {
-            _putchar('\\');
-            _putchar('x');
-            count_fun += 2;  
-            
-            if (*str < 16)
-            {
-                _putchar('0');
-                count_fun++;
-            }
-            count_fun += _printf("%X", *str);
-        }
-
-        str++;
-    }
-
-    return (count_fun);
+	while (*str)
+	{
+		if (*str >= 32 && *str < 127)
+		{
+			_putchar(*str);
+			count_fun++;
+		}
+		else
+		{
+			_putchar('\\');
+			_putchar('x');
+			count_fun += 2;
+			if (*str < 16)
+			{
+				_putchar('0');
+				count_fun++;
+			}
+			count_fun += _printf("%X", *str);
+		}
+		str++;
+	}
+	return (count_fun);
 }
-

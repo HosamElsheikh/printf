@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 			count += count_fun;
 
 		buff_ind = count;
-		if (buff_ind == 1024 || *format =='\0')
+		if (buff_ind == 1024 || *format == '\0')
 		{
 			write(1, buffer, buff_ind);
 			buff_ind = 0;
