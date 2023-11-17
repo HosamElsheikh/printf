@@ -21,6 +21,7 @@ typedef struct specifiers
 int _printf(const char *format, ...);
 int get_function(char s, va_list args);
 int _putchar(char c);
+int print_hex_address(unsigned long address);
 
 /*Conversion specifiers*/
 int handle_char(va_list args);
@@ -33,5 +34,6 @@ int handle_hex(va_list args);
 int handle_hex_upper(va_list args);
 int handle_custom_s(va_list args);
 int handle_rev_str(va_list args);
+int handle_pointer(va_list args);
 
 #endif

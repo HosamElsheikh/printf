@@ -26,6 +26,7 @@ int get_function(char con_spec, va_list args)
 		{'X', handle_hex_upper},
 		{'S', handle_custom_s},
 		{'r', handle_rev_str},
+		{'p', handle_pointer},
 		{0, NULL}
 	};
 
